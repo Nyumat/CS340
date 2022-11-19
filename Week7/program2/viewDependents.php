@@ -35,7 +35,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="page-header clearfix">
-                        <h2 class="pull-left">Add Depdendents</h2>
+                        <h2 class="pull-left">Depdendents</h2>
 						<a href="addDepdent.php" class="btn btn-success pull-right">Add Dependent</a>
                     </div>
 <?php
@@ -49,7 +49,7 @@ if(isset($_GET["Ssn"]) && !empty(trim($_GET["Ssn"]))){
 if(isset($_SESSION["Ssn"]) ){
 	
     // Prepare a select statement
-    $sql = "SELECT D.Depdendent_name, D.Pnumber, FROM DEPENDENT D WHERE D.Essn = ?";
+    $sql = "SELECT D.Depdendent_name, D.Sex, D.Bdate, D.Relationship FROM DEPENDENT D WHERE D.Essn = ?";
 
 	//$sql = "SELECT Essn, Pno, Hours From WORKS_ON WHERE Essn = ? ";   
     if($stmt = mysqli_prepare($link, $sql)){
@@ -57,7 +57,6 @@ if(isset($_SESSION["Ssn"]) ){
         mysqli_stmt_bind_param($stmt, "s", $param_Ssn);      
         // Set parameters
        $param_Ssn = ($_SESSION["Ssn"]);
-	   $Lname = trim($_GET["Lname"]);
 
         // Attempt to execute the prepared statement
         if(mysqli_stmt_execute($stmt)){
@@ -68,18 +67,20 @@ if(isset($_SESSION["Ssn"]) ){
 				echo "<table class='table table-bordered table-striped'>";
                     echo "<thead>";
                         echo "<tr>";
-                            echo "<th width = 20%>Project Number</th>";
-                            echo "<th>Project Name</th>";
-                            echo "<th>Hours</th>";
+                            echo "<th width = 20%>Dependent_name</th>";
+                            echo "<th>Sex</th>";
+                            echo "<th>Birthdate</th>";
+                              echo "<th>Relationship</th>";
                         echo "</tr>";
                     echo "</thead>";
                     echo "<tbody>";							
 				// output data of each row
                     while($row = mysqli_fetch_array($result)){
                         echo "<tr>";
-                        echo "<td>" . $row['Pnumber'] . "</td>";
-                        echo "<td>" . $row['Pname'] . "</td>";
-                        echo "<td>" . $row['Hours'] . "</td>";
+                        echo "<td>" . $row['Dependent_name'] . "</td>";
+                        echo "<td>" . $row['Sex'] . "</td>";
+                        echo "<td>" . $row['Bdate'] . "</td>";
+                        echo "<td>" . $row['Relationship'] . "</td>";
     
                         echo "</tr>";
                     }
@@ -87,7 +88,7 @@ if(isset($_SESSION["Ssn"]) ){
                 echo "</table>";				
 				mysqli_free_result($result);
 			} else {
-				echo "No Projects. ";
+				echo "No Dependents. ";
 			}
 				mysqli_free_result($result);
         } else{
