@@ -1,0 +1,132 @@
+.App {
+  text-align: center;
+   background-color: #000000;
+  min-height: 110vh;
+}
+
+.App-logo {
+  height: 20vmin;
+  position: absolute;
+  top: 0;
+  left: 0;
+  scale: 0.8;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header, footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes Float-And-Sink {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.cats {
+  padding: 10px;
+  margin: 10px;
+  color: #000000;
+}
+
+.clear {
+  margin-left: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  padding: 16px 20px;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  animation: Float-And-Sink 3s ease-in-out infinite;
+  outline: none;
+
+}
+
+input:focus {
+  background-color: rgb(237, 224, 224);
+  outline: none;
+  animation: none;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+button {
+  margin: 10px;
+  padding: 10px;
+  background-color: #282c34;
+  color: white;
+}
+
+select {
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  animation: Float-And-Sink 3s ease-in-out infinite;
+}
+
+select:focus {
+  background-color: rgb(141, 141, 141);
+  outline: none;
+  animation: none;
+}
+
+table {
+  border: 2px solid rgb(0, 0, 0);
+  width: 800px;
+  height: 200px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-spacing: 2;
+}
+
+th, td {
+  border: 1px solid rgb(0, 0, 0);
+  border-collapse: collapse;
+}
+th, td {
+  background-color: #ff9100;
+}
+
